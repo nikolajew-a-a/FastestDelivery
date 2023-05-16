@@ -2,5 +2,6 @@
 <resources>
 
     <string name="fragment_splash_button_continue_text">Продолжить</string>
+    <string name="fragment_splash_title_text">Самая быстрая доставка <font color="red">продуктов</font></string>
 
 </resources>

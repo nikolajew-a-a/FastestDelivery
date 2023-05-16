@@ -2,5 +2,6 @@
     <string name="app_name">FastestDelivery</string>
 
     <string name="fragment_splash_button_continue_text">Get Started</string>
+    <string name="fragment_splash_title_text">The Fastest In Delivery <font color="red">Products</font></string>
 
 </resources>
