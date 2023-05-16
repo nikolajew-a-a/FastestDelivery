@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!--     Splash-->
     <string name="fragment_splash_button_continue_text">Продолжить</string>
     <string name="fragment_splash_title_text">Самая быстрая доставка <font color="red">продуктов</font></string>
+
+    <!--    Auth-->
+    <string name="fragment_auth_tab_login_text">Войти</string>
+    <string name="fragment_auth_tab_register_text">Регистрация</string>
+
 
 </resources>

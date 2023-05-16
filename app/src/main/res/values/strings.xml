@@ -1,7 +1,14 @@
 <resources>
     <string name="app_name">FastestDelivery</string>
 
+    <!--     Splash-->
     <string name="fragment_splash_button_continue_text">Get Started</string>
     <string name="fragment_splash_title_text">The Fastest In Delivery <font color="red">Products</font></string>
+
+    <!--    Auth-->
+    <string name="fragment_auth_tab_login_text">Login</string>
+    <string name="fragment_auth_tab_register_text">Register</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

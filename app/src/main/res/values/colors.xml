@@ -9,8 +9,10 @@
     <color name="white">#FFFFFFFF</color>
 
     <color name="main_black">#FF000000</color>
-    <color name="main_ripple">#42ffffff</color>
     <color name="main_red">#F00808</color>
     <color name="main_white">#FFFFFF</color>
+
+    <color name="main_image_background">#FFF1E5</color>
+    <color name="main_ripple">#42ffffff</color>
 
 </resources>

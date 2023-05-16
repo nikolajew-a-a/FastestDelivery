@@ -1,7 +1,7 @@
 package ru.app.fastestdelivery.presentation.screens
 
 import com.github.terrakok.cicerone.androidx.FragmentScreen
-import ru.app.fastestdelivery.presentation.login.LoginFragment
+import ru.app.fastestdelivery.presentation.auth.AuthFragment
 import ru.app.fastestdelivery.presentation.splash.SplashFragment
 
 object Screens {
@@ -14,7 +14,7 @@ object Screens {
     }
 
     fun loginScreen() = FragmentScreen(LOGIN_SCREEN_NAME) {
-        LoginFragment.newInstance()
+        AuthFragment.newInstance()
     }
 
 }
