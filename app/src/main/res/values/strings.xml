@@ -8,7 +8,8 @@
     <!--    Auth-->
     <string name="fragment_auth_tab_login_text">Login</string>
     <string name="fragment_auth_tab_register_text">Register</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!--    Login-->
+    <string name="fragment_login_button_continue_text">Login</string>
 
 </resources>

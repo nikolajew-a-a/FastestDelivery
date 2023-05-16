@@ -1,10 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="AppTheme.Button" parent="Widget.AppCompat.Button.Borderless.Colored">
+    <style name="AppTheme.Button.Big" parent="Widget.AppCompat.Button.Borderless.Colored">
         <item name="android:background">@drawable/selector_button</item>
         <item name="android:textColor">@color/main_white</item>
         <item name="android:textSize">22sp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:fontFamily">@font/dm_sans_medium</item>
+    </style>
+
+    <style name="AppTheme.Button.Small" parent="Widget.AppCompat.Button.Borderless.Colored">
+        <item name="android:background">@drawable/selector_button</item>
+        <item name="android:textColor">@color/main_white</item>
+        <item name="android:textSize">18sp</item>
         <item name="android:textAllCaps">false</item>
         <item name="android:fontFamily">@font/dm_sans_medium</item>
     </style>

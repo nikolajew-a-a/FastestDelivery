@@ -9,5 +9,7 @@
     <string name="fragment_auth_tab_login_text">Войти</string>
     <string name="fragment_auth_tab_register_text">Регистрация</string>
 
+    <!--    Login-->
+    <string name="fragment_login_button_continue_text">Войти</string>
 
 </resources>
