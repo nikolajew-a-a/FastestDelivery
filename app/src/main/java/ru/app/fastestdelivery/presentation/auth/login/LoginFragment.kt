@@ -21,9 +21,11 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
     }
 
     private fun initViews() = with(viewBinding) {
-        loginContinueButton.setOnClickListener {
-            viewModel.onContinueButtonClicked()
-        }
+        loginContinueButton.setOnClickListener { viewModel.onContinueButtonClicked() }
+        loginEmail.inputMailViewTitle.text = context?.getString(R.string.fragment_login_email_input_title)
+        loginEmail.inputMailViewEditText.hint = context?.getString(R.string.fragment_login_email_input_hint)
+        loginPassword.inputPasswordViewTitle.text = context?.getString(R.string.fragment_login_password_input_title)
+        loginPassword.inputPasswordViewEditText.hint = context?.getString(R.string.fragment_login_password_input_hint)
     }
 
     companion object {

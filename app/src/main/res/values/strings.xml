@@ -11,5 +11,9 @@
 
     <!--    Login-->
     <string name="fragment_login_button_continue_text">Login</string>
+    <string name="fragment_login_email_input_title">Email</string>
+    <string name="fragment_login_email_input_hint">Enter your email</string>
+    <string name="fragment_login_password_input_title">Password</string>
+    <string name="fragment_login_password_input_hint">Enter your password</string>
 
 </resources>

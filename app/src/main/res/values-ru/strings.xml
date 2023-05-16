@@ -11,5 +11,9 @@
 
     <!--    Login-->
     <string name="fragment_login_button_continue_text">Войти</string>
+    <string name="fragment_login_email_input_title">Почта</string>
+    <string name="fragment_login_email_input_hint">Введите почту</string>
+    <string name="fragment_login_password_input_title">Пароль</string>
+    <string name="fragment_login_password_input_hint">Введите пароль</string>
 
 </resources>
