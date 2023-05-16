@@ -1,6 +1,8 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'com.google.dagger.hilt.android'
 }
 
 android {
@@ -55,4 +57,16 @@ dependencies {
     //Cicerone Navigation
     implementation("com.github.terrakok:cicerone:7.1")
 
+    // Hilt DI
+    implementation "com.google.dagger:hilt-android:2.44"
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.6.1'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1'
+    kapt "com.google.dagger:hilt-compiler:2.44"
+
+}
+
+// Allow references to generated code
+kapt {
+    correctErrorTypes = true
 }
