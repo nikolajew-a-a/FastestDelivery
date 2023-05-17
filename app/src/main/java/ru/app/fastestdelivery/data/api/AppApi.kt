@@ -14,11 +14,7 @@ interface AppApi {
     //  2. Указать query параметры, если есть или params (к названию модели лучше добавлять "RequestModel")
     //  3. Добавить вид ответа от сервера в виде модельки. Например, как LoginResponseModel
 
-    @POST("/login")
-    suspend fun login(
-        @Query("email") email: String,
-        @Query("password") password: String,
-        @Body params: LoginRequestModel
-    ): Response<LoginResponseModel>
+    @POST("/register")
+    suspend fun login(@Body params: LoginRequestModel): Response<LoginResponseModel>
 
 }

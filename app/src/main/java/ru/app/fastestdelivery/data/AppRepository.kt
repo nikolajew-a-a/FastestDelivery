@@ -13,11 +13,7 @@ class Repository @Inject constructor(
             email = email,
             password = password
         )
-        api.login(
-            email = email,
-            password = password,
-            params = params
-        )
+        api.login(params = params)
     }
 
     suspend fun register(email: String, password: String) {
