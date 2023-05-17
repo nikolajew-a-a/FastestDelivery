@@ -4,6 +4,8 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import retrofit2.Response
 import ru.app.fastestdelivery.data.api.AppApi
+import ru.app.fastestdelivery.data.models.CreateOrderRequestModel
+import ru.app.fastestdelivery.data.models.CreateOrderResponseModel
 import ru.app.fastestdelivery.data.models.GetAllProductsResponseModel
 import ru.app.fastestdelivery.data.models.LoginRequestModel
 import ru.app.fastestdelivery.data.models.RegisterRequestModel
@@ -31,5 +33,16 @@ class Repository @Inject constructor(
     }
 
     suspend fun getAllProducts(): Response<GetAllProductsResponseModel> = api.allProducts()
+
+    suspend fun createOrder(customerId: Int, price: Double, status: String): Response<CreateOrderResponseModel> {
+        val params = CreateOrderRequestModel(
+                customerId = customerId,
+                price = price,
+                status = status
+        )
+        return api.createOrder(params = params)
+    }
+
+    suspend fun getOrders(customerId: Int) = api.getOrders(customerId = customerId)
 
 }

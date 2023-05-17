@@ -7,7 +7,6 @@ import com.squareup.moshi.JsonClass
 data class GetAllProductsResponseModel(
         val products: List<ProductResponseModel>,
         val numberOfRows: Int
-
 )
 
 @JsonClass(generateAdapter = true)
@@ -15,12 +14,12 @@ data class ProductResponseModel(
         val id: Int,
         val name: String,
         val quantity: Int,
-        var price: Int?,
-        var description: String?,
-        var type: String?,
-        var energyValue: Int?,
-        var weight: Int?,
-        var photos: List<PhotosResponseModel>
+        val price: Int?,
+        val description: String?,
+        val type: String?,
+        val energyValue: Int?,
+        val weight: Int?,
+        val photos: List<PhotosResponseModel>
 )
 
 @JsonClass(generateAdapter = true)
