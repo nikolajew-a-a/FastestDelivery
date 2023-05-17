@@ -53,6 +53,9 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.6.1'
     implementation "androidx.fragment:fragment-ktx:1.5.7"
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.6.1'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1'
 
     // ViewBinding
     implementation 'com.github.kirich1409:viewbindingpropertydelegate-noreflection:1.5.9'
@@ -62,10 +65,17 @@ dependencies {
 
     // Hilt DI
     implementation "com.google.dagger:hilt-android:2.44"
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.6.1'
-    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1'
     kapt "com.google.dagger:hilt-compiler:2.44"
+
+    //Retrofit
+    implementation "com.squareup.retrofit2:retrofit:$versions.retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-moshi:$versions.retrofitVersion"
+    implementation("com.squareup.okhttp3:logging-interceptor:4.11.0")
+
+    //Moshi
+    implementation "com.squareup.moshi:moshi-adapters:$versions.moshiVersion"
+    kapt "com.squareup.moshi:moshi-kotlin-codegen:$versions.moshiVersion"
+    implementation("com.squareup.moshi:moshi-kotlin:$versions.moshiVersion")
 
 }
 
