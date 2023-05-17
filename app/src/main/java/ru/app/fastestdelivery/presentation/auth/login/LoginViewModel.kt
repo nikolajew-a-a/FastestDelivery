@@ -14,7 +14,7 @@ import ru.app.fastestdelivery.domain.AuthUseCase
 import ru.app.fastestdelivery.presentation.screens.Screens
 import javax.inject.Inject
 import ru.app.fastestdelivery.presentation.auth.login.models.State
-import ru.app.fastestdelivery.util.InputState
+import ru.app.fastestdelivery.util.ui.inputState.InputState
 
 @HiltViewModel
 class LoginViewModel @Inject constructor(

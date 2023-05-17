@@ -1,4 +1,4 @@
-package ru.app.fastestdelivery.util
+package ru.app.fastestdelivery.util.ui.inputState
 
 sealed interface InputState<out T> {
 
