@@ -2,6 +2,7 @@ package ru.app.fastestdelivery.presentation.auth.login
 
 import android.os.Bundle
 import android.view.View
+import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import by.kirich1409.viewbindingdelegate.viewBinding
@@ -26,6 +27,8 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         loginEmail.inputMailViewEditText.hint = context?.getString(R.string.fragment_login_email_input_hint)
         loginPassword.inputPasswordViewTitle.text = context?.getString(R.string.fragment_login_password_input_title)
         loginPassword.inputPasswordViewEditText.hint = context?.getString(R.string.fragment_login_password_input_hint)
+        loginEmail.inputMailViewEditText.doAfterTextChanged(viewModel::onEmailUpdated)
+        loginPassword.inputPasswordViewEditText.doAfterTextChanged(viewModel::onPasswordUpdated)
     }
 
     companion object {
