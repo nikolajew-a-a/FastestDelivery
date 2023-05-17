@@ -2,8 +2,9 @@ package ru.app.fastestdelivery.data
 
 import ru.app.fastestdelivery.data.api.AppApi
 import ru.app.fastestdelivery.data.models.LoginRequestModel
+import javax.inject.Inject
 
-class Repository(
+class Repository @Inject constructor(
     private val api: AppApi
 ) {
 
