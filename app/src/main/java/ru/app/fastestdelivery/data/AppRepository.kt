@@ -1,18 +1,20 @@
 package ru.app.fastestdelivery.data
 
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
 import retrofit2.Response
 import ru.app.fastestdelivery.data.api.AppApi
+import ru.app.fastestdelivery.data.errors.ErrorResponse
+import ru.app.fastestdelivery.data.errors.ErrorsConverter
 import ru.app.fastestdelivery.data.models.CreateOrderRequestModel
 import ru.app.fastestdelivery.data.models.CreateOrderResponseModel
 import ru.app.fastestdelivery.data.models.GetAllProductsResponseModel
 import ru.app.fastestdelivery.data.models.LoginRequestModel
 import ru.app.fastestdelivery.data.models.RegisterRequestModel
+import ru.app.fastestdelivery.util.MessageException
 import javax.inject.Inject
 
 class Repository @Inject constructor(
-    private val api: AppApi
+    private val api: AppApi,
+    private val errorsConverter: ErrorsConverter
 ) {
 
     suspend fun login(email: String, password: String) {
@@ -20,7 +22,13 @@ class Repository @Inject constructor(
             email = email,
             password = password
         )
-        api.login(params = params)
+        api.login(params = params).also {
+            if (it.isSuccessful) {
+                // TODO (Добавить сохранение в БД)
+            } else {
+                throw MessageException(message = errorMessage(it))
+            }
+        }
     }
 
     suspend fun register(name: String, email: String, password: String) {
@@ -44,5 +52,14 @@ class Repository @Inject constructor(
     }
 
     suspend fun getOrders(customerId: Int) = api.getOrders(customerId = customerId)
+
+    private fun errorMessage(response: Response<*>): String {
+        return errorsConverter.convert(
+                jsonString = response.errorBody()?.string().orEmpty(),
+                type = ErrorResponse::class.java
+            )
+            ?.message
+            .orEmpty()
+    }
 
 }
