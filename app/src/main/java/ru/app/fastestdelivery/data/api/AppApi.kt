@@ -2,7 +2,9 @@ package ru.app.fastestdelivery.data.api
 
 import retrofit2.Response
 import retrofit2.http.Body
+import retrofit2.http.GET
 import retrofit2.http.POST
+import ru.app.fastestdelivery.data.models.GetAllProductsResponseModel
 import ru.app.fastestdelivery.data.models.LoginRequestModel
 import ru.app.fastestdelivery.data.models.LoginResponseModel
 import ru.app.fastestdelivery.data.models.RegisterRequestModel
@@ -20,5 +22,8 @@ interface AppApi {
 
     @POST("customers/register")
     suspend fun register(@Body params: RegisterRequestModel): Response<RegisterResponseModel>
+
+    @GET("products/all")
+    suspend fun allProducts(): Response<GetAllProductsResponseModel>
 
 }
