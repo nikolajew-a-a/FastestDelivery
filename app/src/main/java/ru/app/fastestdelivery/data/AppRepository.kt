@@ -2,6 +2,7 @@ package ru.app.fastestdelivery.data
 
 import ru.app.fastestdelivery.data.api.AppApi
 import ru.app.fastestdelivery.data.models.LoginRequestModel
+import ru.app.fastestdelivery.data.models.RegisterRequestModel
 import javax.inject.Inject
 
 class Repository @Inject constructor(
@@ -16,8 +17,13 @@ class Repository @Inject constructor(
         api.login(params = params)
     }
 
-    suspend fun register(email: String, password: String) {
-
+    suspend fun register(name: String, email: String, password: String) {
+        val params = RegisterRequestModel(
+                name = name,
+                email = email,
+                password = password
+        )
+        api.register(params = params)
     }
 
 }

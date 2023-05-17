@@ -3,9 +3,10 @@ package ru.app.fastestdelivery.data.api
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.POST
-import retrofit2.http.Query
 import ru.app.fastestdelivery.data.models.LoginRequestModel
 import ru.app.fastestdelivery.data.models.LoginResponseModel
+import ru.app.fastestdelivery.data.models.RegisterRequestModel
+import ru.app.fastestdelivery.data.models.RegisterResponseModel
 
 interface AppApi {
 
@@ -14,7 +15,10 @@ interface AppApi {
     //  2. Указать query параметры, если есть или params (к названию модели лучше добавлять "RequestModel")
     //  3. Добавить вид ответа от сервера в виде модельки. Например, как LoginResponseModel
 
-    @POST("/register")
+    @POST("customers/login")
     suspend fun login(@Body params: LoginRequestModel): Response<LoginResponseModel>
+
+    @POST("customers/register")
+    suspend fun register(@Body params: RegisterRequestModel): Response<RegisterResponseModel>
 
 }
