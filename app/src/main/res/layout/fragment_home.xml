@@ -13,4 +13,10 @@
         android:gravity="center"
         android:text="HOME"/>
 
+    <Button
+        android:id="@+id/tempButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Go to product detail"/>
+
 </FrameLayout>
