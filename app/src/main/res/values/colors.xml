@@ -14,6 +14,7 @@
     <color name="main_white">#FFFFFF</color>
 
     <color name="light_red">#F34B4B</color>
+    <color name="light_grey">#FAFAFA</color>
 
     <color name="main_image_background">#FFF1E5</color>
     <color name="main_ripple">#42ffffff</color>

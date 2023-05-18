@@ -8,7 +8,6 @@ import by.kirich1409.viewbindingdelegate.viewBinding
 import dagger.hilt.android.AndroidEntryPoint
 import ru.app.fastestdelivery.R
 import ru.app.fastestdelivery.databinding.FragmentBagBinding
-import ru.app.fastestdelivery.databinding.FragmentHomeBinding
 
 @AndroidEntryPoint
 class BagFragment : Fragment(R.layout.fragment_bag) {
@@ -22,8 +21,8 @@ class BagFragment : Fragment(R.layout.fragment_bag) {
     }
 
     private fun initViews() = with(viewBinding) {
-        bagPayButton.setOnClickListener {
-            viewModel.onPayButtonClicker()
+        bagBuyButton.setOnClickListener {
+            viewModel.onBuyButtonClicked()
         }
     }
 

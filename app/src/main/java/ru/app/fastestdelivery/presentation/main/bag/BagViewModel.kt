@@ -11,7 +11,7 @@ class BagViewModel @Inject constructor(
     private val router: Router
 ) : ViewModel() {
 
-    fun onPayButtonClicker() {
+    fun onBuyButtonClicked() {
         router.navigateTo(Screens.paymentResultScreen())
     }
 

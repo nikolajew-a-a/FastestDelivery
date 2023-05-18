@@ -7,20 +7,42 @@
     android:layout_height="match_parent"
     tools:context=".presentation.main.home.HomeFragment">
 
-    <TextView
-        style="@style/AppTheme.Text.Header3"
+    <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="BAG"/>
-
-    <Button
-        android:id="@+id/bag_pay_button"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="Go to payment result"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent"
+        tools:itemCount="3"
+        tools:listitem="@layout/item_bag_product"/>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/light_grey"
+        android:orientation="vertical"
+        android:paddingHorizontal="24dp"
+        android:paddingVertical="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/bag_total_amount"
+            style="@style/AppTheme.Text.Body"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/bag_total_amount"
+            android:textSize="20sp"/>
+
+        <Button
+            android:id="@+id/bag_buy_button"
+            style="@style/AppTheme.Button.Big"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/bag_buy_button_text"/>
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

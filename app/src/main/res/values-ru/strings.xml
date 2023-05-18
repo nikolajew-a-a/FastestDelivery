@@ -18,8 +18,14 @@
     <string name="fragment_login_email_input_hint">Введите почту</string>
     <string name="fragment_login_password_input_title">Пароль</string>
     <string name="fragment_login_password_input_hint">Введите пароль</string>
+
+    <!--    Main-->
     <string name="menu_item_home_title">Главная</string>
     <string name="menu_item_bag_title">Корзина</string>
     <string name="menu_item_profile_title">Профиль</string>
+
+    <!--    Bag-->
+    <string name="bag_buy_button_text">Buy</string>
+    <string name="bag_total_amount">Общая стоимость:  %1$s₽</string>
 
 </resources>
