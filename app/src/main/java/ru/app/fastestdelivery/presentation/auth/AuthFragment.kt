@@ -10,7 +10,9 @@ import by.kirich1409.viewbindingdelegate.viewBinding
 import dagger.hilt.android.AndroidEntryPoint
 import ru.app.fastestdelivery.R
 import ru.app.fastestdelivery.databinding.FragmentAuthBinding
+import ru.app.fastestdelivery.presentation.auth.login.LoginFragment
 import ru.app.fastestdelivery.presentation.auth.models.AuthTab
+import ru.app.fastestdelivery.presentation.auth.register.RegisterFragment
 import ru.app.fastestdelivery.util.observe
 
 @AndroidEntryPoint
@@ -18,6 +20,13 @@ class AuthFragment : Fragment(R.layout.fragment_auth) {
 
     private val viewBinding: FragmentAuthBinding by viewBinding(FragmentAuthBinding::bind)
     private val viewModel: AuthViewModel by viewModels()
+
+    private val tabFragments by lazy {
+        mapOf(
+            AuthTab.LOGIN to LoginFragment.newInstance(),
+            AuthTab.REGISTER to RegisterFragment.newInstance()
+        )
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -35,7 +44,7 @@ class AuthFragment : Fragment(R.layout.fragment_auth) {
                 AuthTab.REGISTER -> authTabRegister.tabAuthUnderline.isVisible = true
             }
 
-            state.fragments[state.selectedTab]?.let { fragment ->
+            tabFragments[state.selectedTab]?.let { fragment ->
                 childFragmentManager
                     .beginTransaction()
                     .replace(R.id.auth_container, fragment)

@@ -18,13 +18,7 @@ class AuthViewModel @Inject constructor(
     private val router: Router
 ) : ViewModel() {
 
-    private val initialState = State(
-        selectedTab = AuthTab.LOGIN,
-        fragments = mapOf(
-            AuthTab.LOGIN to LoginFragment.newInstance(),
-            AuthTab.REGISTER to RegisterFragment.newInstance()
-        )
-    )
+    private val initialState = State(selectedTab = AuthTab.LOGIN)
     private val _state: MutableStateFlow<State> = MutableStateFlow(initialState)
     val state: StateFlow<State> = _state.asStateFlow()
 
