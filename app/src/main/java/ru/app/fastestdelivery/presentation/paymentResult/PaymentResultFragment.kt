@@ -1,4 +1,4 @@
-package ru.app.fastestdelivery.presentation.main.bag
+package ru.app.fastestdelivery.presentation.paymentResult
 
 import android.os.Bundle
 import android.view.View
@@ -7,14 +7,13 @@ import androidx.fragment.app.viewModels
 import by.kirich1409.viewbindingdelegate.viewBinding
 import dagger.hilt.android.AndroidEntryPoint
 import ru.app.fastestdelivery.R
-import ru.app.fastestdelivery.databinding.FragmentBagBinding
-import ru.app.fastestdelivery.databinding.FragmentHomeBinding
+import ru.app.fastestdelivery.databinding.FragmentPaymentResultBinding
 
 @AndroidEntryPoint
-class BagFragment : Fragment(R.layout.fragment_bag) {
+class PaymentResultFragment : Fragment(R.layout.fragment_payment_result) {
 
-    private val viewBinding: FragmentBagBinding by viewBinding(FragmentBagBinding::bind)
-    private val viewModel: BagViewModel by viewModels()
+    private val viewBinding: FragmentPaymentResultBinding by viewBinding(FragmentPaymentResultBinding::bind)
+    private val viewModel: PaymentResultViewModel by viewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -22,14 +21,14 @@ class BagFragment : Fragment(R.layout.fragment_bag) {
     }
 
     private fun initViews() = with(viewBinding) {
-        bagPayButton.setOnClickListener {
-            viewModel.onPayButtonClicker()
+        paymentResultContinueButton.setOnClickListener {
+            viewModel.onContinueClicked()
         }
     }
 
     companion object {
 
-        fun newInstance() = BagFragment()
+        fun newInstance() = PaymentResultFragment()
 
     }
 
