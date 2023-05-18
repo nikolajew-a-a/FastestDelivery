@@ -18,5 +18,8 @@
     <string name="fragment_login_email_input_hint">Введите почту</string>
     <string name="fragment_login_password_input_title">Пароль</string>
     <string name="fragment_login_password_input_hint">Введите пароль</string>
+    <string name="menu_item_home_title">Главная</string>
+    <string name="menu_item_bag_title">Корзина</string>
+    <string name="menu_item_profile_title">Профиль</string>
 
 </resources>
