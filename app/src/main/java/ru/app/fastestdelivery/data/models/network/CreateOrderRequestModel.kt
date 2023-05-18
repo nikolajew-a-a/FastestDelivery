@@ -1,4 +1,4 @@
-package ru.app.fastestdelivery.data.models
+package ru.app.fastestdelivery.data.models.network
 
 import com.squareup.moshi.JsonClass
 

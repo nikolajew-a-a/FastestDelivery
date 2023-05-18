@@ -4,11 +4,11 @@ import retrofit2.Response
 import ru.app.fastestdelivery.data.api.AppApi
 import ru.app.fastestdelivery.data.errors.ErrorResponse
 import ru.app.fastestdelivery.data.errors.ErrorsConverter
-import ru.app.fastestdelivery.data.models.CreateOrderRequestModel
-import ru.app.fastestdelivery.data.models.CreateOrderResponseModel
-import ru.app.fastestdelivery.data.models.GetAllProductsResponseModel
-import ru.app.fastestdelivery.data.models.LoginRequestModel
-import ru.app.fastestdelivery.data.models.RegisterRequestModel
+import ru.app.fastestdelivery.data.models.network.CreateOrderRequestModel
+import ru.app.fastestdelivery.data.models.network.CreateOrderResponseModel
+import ru.app.fastestdelivery.data.models.network.GetAllProductsResponseModel
+import ru.app.fastestdelivery.data.models.network.LoginRequestModel
+import ru.app.fastestdelivery.data.models.network.RegisterRequestModel
 import ru.app.fastestdelivery.util.MessageException
 import javax.inject.Inject
 

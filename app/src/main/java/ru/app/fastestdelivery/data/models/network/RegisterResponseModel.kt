@@ -1,9 +1,9 @@
-package ru.app.fastestdelivery.data.models
+package ru.app.fastestdelivery.data.models.network
 
 import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
-class LoginResponseModel(
+class RegisterResponseModel(
     val name: String,
     val userId: Int,
     val token: String

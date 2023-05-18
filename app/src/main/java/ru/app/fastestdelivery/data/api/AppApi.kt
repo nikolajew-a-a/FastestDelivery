@@ -5,14 +5,14 @@ import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.POST
 import retrofit2.http.Path
-import ru.app.fastestdelivery.data.models.CreateOrderRequestModel
-import ru.app.fastestdelivery.data.models.CreateOrderResponseModel
-import ru.app.fastestdelivery.data.models.GetAllProductsResponseModel
-import ru.app.fastestdelivery.data.models.OrderResponseModel
-import ru.app.fastestdelivery.data.models.LoginRequestModel
-import ru.app.fastestdelivery.data.models.LoginResponseModel
-import ru.app.fastestdelivery.data.models.RegisterRequestModel
-import ru.app.fastestdelivery.data.models.RegisterResponseModel
+import ru.app.fastestdelivery.data.models.network.CreateOrderRequestModel
+import ru.app.fastestdelivery.data.models.network.CreateOrderResponseModel
+import ru.app.fastestdelivery.data.models.network.GetAllProductsResponseModel
+import ru.app.fastestdelivery.data.models.network.OrderResponseModel
+import ru.app.fastestdelivery.data.models.network.LoginRequestModel
+import ru.app.fastestdelivery.data.models.network.LoginResponseModel
+import ru.app.fastestdelivery.data.models.network.RegisterRequestModel
+import ru.app.fastestdelivery.data.models.network.RegisterResponseModel
 
 interface AppApi {
 

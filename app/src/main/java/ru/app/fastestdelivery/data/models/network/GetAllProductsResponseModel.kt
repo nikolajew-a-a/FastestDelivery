@@ -1,12 +1,12 @@
-package ru.app.fastestdelivery.data.models
+package ru.app.fastestdelivery.data.models.network
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
 data class GetAllProductsResponseModel(
-        val products: List<ProductResponseModel>,
-        val numberOfRows: Int
+    val products: List<ProductResponseModel>,
+    val numberOfRows: Int
 )
 
 @JsonClass(generateAdapter = true)
