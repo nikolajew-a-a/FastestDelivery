@@ -7,6 +7,6 @@ import ru.app.fastestdelivery.data.models.database.UserEntity
 @Database(entities = [UserEntity::class], version = 1)
 abstract class AppDatabase : RoomDatabase() {
 
-    abstract fun spaceDao(): SpacesDao
+    abstract fun userDao(): UserDao
 
 }

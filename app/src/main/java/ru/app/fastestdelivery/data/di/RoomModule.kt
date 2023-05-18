@@ -3,12 +3,12 @@ package ru.app.fastestdelivery.data.di
 import android.content.Context
 import androidx.room.Room
 import ru.app.fastestdelivery.data.room.AppDatabase
-import ru.app.fastestdelivery.data.room.SpacesDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
+import ru.app.fastestdelivery.data.room.UserDao
 
 @Module
 @InstallIn(SingletonComponent::class)
@@ -26,6 +26,6 @@ object RoomModule {
     }
 
     @Provides
-    fun provideSpaceDao(appDatabase: AppDatabase): SpacesDao = appDatabase.spaceDao()
+    fun provideUserDao(appDatabase: AppDatabase): UserDao = appDatabase.userDao()
 
 }

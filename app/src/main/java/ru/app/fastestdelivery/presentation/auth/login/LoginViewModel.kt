@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.github.terrakok.cicerone.Router
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharedFlow
@@ -13,6 +14,7 @@ import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import ru.app.fastestdelivery.R
 import ru.app.fastestdelivery.domain.AuthUseCase
 import ru.app.fastestdelivery.presentation.screens.Screens
@@ -56,10 +58,10 @@ class LoginViewModel @Inject constructor(
     }
 
     private fun login(email: String, password: String) {
-        viewModelScope.launch {
+        viewModelScope.launch(Dispatchers.IO) {
             try {
                 authUseCase.login(email = email, password = password)
-                router.navigateTo(Screens.mainScreen())
+                withContext(Dispatchers.Main) { router.navigateTo(Screens.mainScreen()) }
             } catch (e: Exception) {
                 if (e is MessageException) {
                     _errorEvent.emit(UiText.DynamicString(e.message))
