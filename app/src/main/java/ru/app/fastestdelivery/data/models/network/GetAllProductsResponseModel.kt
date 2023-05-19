@@ -14,11 +14,11 @@ data class ProductResponseModel(
         val id: Int,
         val name: String,
         val quantity: Int,
-        val price: Int?,
-        val description: String?,
-        val type: String?,
-        val energyValue: Int?,
-        val weight: Int?,
+        val price: Int,
+        val description: String,
+        val type: String,
+        val energyValue: Int,
+        val weight: Int,
         val photos: List<PhotosResponseModel>
 )
 
