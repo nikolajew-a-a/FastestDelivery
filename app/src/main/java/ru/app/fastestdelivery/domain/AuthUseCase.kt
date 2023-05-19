@@ -15,4 +15,8 @@ class AuthUseCase @Inject constructor(
         repository.register(name = name, email = email, password = password)
     }
 
+    suspend fun logout() {
+        repository.logout()
+    }
+
 }

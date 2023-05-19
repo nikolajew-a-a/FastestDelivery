@@ -58,6 +58,11 @@ class Repository @Inject constructor(
         api.register(params = params)
     }
 
+
+    suspend fun logout() {
+        userDao.clearUser()
+    }
+
     suspend fun getAllProducts(): List<Product> {
         val response = api.allProducts()
         if (response.isSuccessful) {

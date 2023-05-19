@@ -29,4 +29,7 @@
     <string name="bag_total_amount">Общая стоимость:  %s₽</string>
     <string name="bag_item_product_price">Цена: %s₽</string>
 
+    <!--    Profile-->
+    <string name="profile_log_out_button_text">Выйти</string>
+
 </resources>
