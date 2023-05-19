@@ -9,5 +9,10 @@ class BagProductsUseCase @Inject constructor(
     private val repository: Repository
 ) {
 
-    fun getBagProductsFlow(): Flow<List<Product>> = repository.getBagProductsFlow()
+    suspend fun getBagProductsFlow(): Flow<List<Product>> = repository.getBagProductsFlow()
+
+    suspend fun insertBagProduct(product: Product) = repository.insertBagProduct(product)
+
+    suspend fun deleteBagProduct(id: Int) = repository.deleteBagProduct(id)
+
 }

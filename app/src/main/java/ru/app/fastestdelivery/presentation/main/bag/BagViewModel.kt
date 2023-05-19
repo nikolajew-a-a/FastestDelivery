@@ -10,8 +10,8 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
-import ru.app.fastestdelivery.R
 import ru.app.fastestdelivery.domain.BagProductsUseCase
+import ru.app.fastestdelivery.domain.models.Product
 import ru.app.fastestdelivery.presentation.main.bag.models.State
 import ru.app.fastestdelivery.presentation.screens.Screens
 import javax.inject.Inject
@@ -39,6 +39,28 @@ class BagViewModel @Inject constructor(
             bagProductsUseCase.getBagProductsFlow().collect { products ->
                 _state.update { it.copy(items = products) }
             }
+        }
+    }
+
+    fun onProductPlusClicked(product: Product) {
+        val newProduct = product.copy(quantity = product.quantity + 1)
+        viewModelScope.launch(Dispatchers.IO) {
+            bagProductsUseCase.insertBagProduct(newProduct)
+        }
+    }
+
+    fun onProductMinusClicked(product: Product) {
+        if (product.quantity > 0) {
+            val newProduct = product.copy(quantity = product.quantity - 1)
+            viewModelScope.launch(Dispatchers.IO) {
+                bagProductsUseCase.insertBagProduct(newProduct)
+            }
+        }
+    }
+
+    fun onProductDeleteClicked(product: Product) {
+        viewModelScope.launch(Dispatchers.IO) {
+            bagProductsUseCase.deleteBagProduct(product.id)
         }
     }
 

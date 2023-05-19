@@ -11,9 +11,9 @@ import ru.app.fastestdelivery.data.models.database.ProductEntity
 interface ProductDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertProducts(products: List<ProductEntity>)
+    suspend fun insertProducts(products: List<ProductEntity>)
 
     @Query("SELECT * FROM $PRODUCT_TABLE WHERE id=:id")
-    fun getProduct(id: String): ProductEntity
+    suspend fun getProduct(id: String): ProductEntity
 
 }

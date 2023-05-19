@@ -69,11 +69,20 @@ class Repository @Inject constructor(
         }
     }
 
-    fun getBagProductsFlow(): Flow<List<Product>> {
+    suspend fun getBagProductsFlow(): Flow<List<Product>> {
         return bagProductDao.getBagProductsFlow().map { entities ->
             entities.map(bagProductEntityToModel::convert)
         }
     }
+
+    suspend fun insertBagProduct(product: Product) {
+        bagProductDao.insertBagProduct(bagProductModelToEntity.convert(product))
+    }
+
+    suspend fun deleteBagProduct(id: Int) {
+        bagProductDao.deleteBagProduct(id)
+    }
+
 
     suspend fun createOrder(customerId: Int, price: Double, status: String): Response<CreateOrderResponseModel> {
         val params = CreateOrderRequestModel(

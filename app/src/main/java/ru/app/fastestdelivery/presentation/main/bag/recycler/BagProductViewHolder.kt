@@ -8,8 +8,16 @@ import ru.app.fastestdelivery.domain.models.Product
 
 class BagProductViewHolder(private val binding: ItemBagProductBinding) : RecyclerView.ViewHolder(binding.root) {
 
-    fun bind(item: Product, onProductClick: (Product) -> Unit) = with(binding) {
-        this.itemBagProductQuantity.text = item.quantity.toString()
+    fun bind(
+        item: Product,
+        onProductPlusClick: (Product) -> Unit,
+        onProductMinusClick: (Product) -> Unit,
+        onProductDeleteClick: (Product) -> Unit,
+    ) = with(binding) {
+        itemBagProductQuantity.text = item.quantity.toString()
+        itemBagProductPlus.setOnClickListener { onProductPlusClick.invoke(item) }
+        itemBagProductMinus.setOnClickListener { onProductMinusClick.invoke(item) }
+        itemBagProductDelete.setOnClickListener { onProductDeleteClick.invoke(item) }
     }
 
     companion object {

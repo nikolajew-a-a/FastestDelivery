@@ -18,7 +18,13 @@ class BagFragment : Fragment(R.layout.fragment_bag) {
     private val viewBinding: FragmentBagBinding by viewBinding(FragmentBagBinding::bind)
     private val viewModel: BagViewModel by viewModels()
 
-    private val adapter = BagProductsAdapter { }
+    private val adapter by lazy {
+        BagProductsAdapter(
+            onProductPlusClick = viewModel::onProductPlusClicked,
+            onProductMinusClick = viewModel::onProductMinusClicked,
+            onProductDeleteClick = viewModel::onProductDeleteClicked
+        )
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

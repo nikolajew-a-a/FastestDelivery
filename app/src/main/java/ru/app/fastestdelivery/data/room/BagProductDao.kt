@@ -12,15 +12,15 @@ import ru.app.fastestdelivery.data.models.database.BagProductEntity
 interface BagProductDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertBagProduct(product: BagProductEntity)
+    suspend fun insertBagProduct(product: BagProductEntity)
 
     @Query("SELECT * FROM $BAG_PRODUCT_TABLE")
     fun getBagProductsFlow(): Flow<List<BagProductEntity>>
 
     @Query("DELETE FROM $BAG_PRODUCT_TABLE WHERE quantity=0")
-    fun deleteEmptyBagProducts()
+    suspend fun deleteEmptyBagProducts()
 
-    @Query("SELECT * FROM $BAG_PRODUCT_TABLE WHERE quantity=:id")
-    fun deleteBagProduct(id: String): BagProductEntity
+    @Query("DELETE FROM $BAG_PRODUCT_TABLE WHERE id=:id")
+    suspend fun deleteBagProduct(id: Int)
 
 }

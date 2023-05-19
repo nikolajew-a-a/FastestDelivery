@@ -11,12 +11,12 @@ import ru.app.fastestdelivery.data.models.database.UserEntity
 interface UserDao {
 
     @Query("SELECT * FROM $USER_TABLE")
-    fun getUsers(): List<UserEntity>
+    suspend fun getUsers(): List<UserEntity>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertUser(user: UserEntity)
+    suspend fun insertUser(user: UserEntity)
 
     @Query("DELETE FROM $USER_TABLE")
-    fun clearUser()
+    suspend fun clearUser()
 
 }
