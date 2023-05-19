@@ -1,13 +1,6 @@
-package ru.app.fastestdelivery.data.models.database
+package ru.app.fastestdelivery.domain
 
-import androidx.room.Entity
-import androidx.room.PrimaryKey
-
-const val PRODUCT_TABLE = "productTable"
-
-@Entity(tableName = PRODUCT_TABLE)
-data class ProductEntity(
-    @PrimaryKey
+data class Product(
     val id: Int,
     val name: String,
     val quantity: Int,
