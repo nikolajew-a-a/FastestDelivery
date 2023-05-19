@@ -1,7 +1,7 @@
 package ru.app.fastestdelivery.data.converters.product
 
 import ru.app.fastestdelivery.data.models.database.BagProductEntity
-import ru.app.fastestdelivery.domain.Product
+import ru.app.fastestdelivery.domain.models.Product
 import javax.inject.Inject
 
 class BagProductModelToEntity @Inject constructor() {

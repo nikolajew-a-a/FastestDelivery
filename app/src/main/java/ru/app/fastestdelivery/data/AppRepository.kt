@@ -1,10 +1,10 @@
 package ru.app.fastestdelivery.data
 
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.map
 import retrofit2.Response
 import ru.app.fastestdelivery.data.api.AppApi
+import ru.app.fastestdelivery.data.converters.product.BagProductEntityToModel
 import ru.app.fastestdelivery.data.converters.product.BagProductModelToEntity
 import ru.app.fastestdelivery.data.converters.product.ProductEntityToModel
 import ru.app.fastestdelivery.data.converters.product.ProductResponseToEntity
@@ -14,14 +14,12 @@ import ru.app.fastestdelivery.data.errors.ErrorResponse
 import ru.app.fastestdelivery.data.errors.ErrorsConverter
 import ru.app.fastestdelivery.data.models.network.CreateOrderRequestModel
 import ru.app.fastestdelivery.data.models.network.CreateOrderResponseModel
-import ru.app.fastestdelivery.data.models.network.GetAllProductsResponseModel
 import ru.app.fastestdelivery.data.models.network.LoginRequestModel
 import ru.app.fastestdelivery.data.models.network.RegisterRequestModel
 import ru.app.fastestdelivery.data.room.BagProductDao
 import ru.app.fastestdelivery.data.room.ProductDao
 import ru.app.fastestdelivery.data.room.UserDao
-import ru.app.fastestdelivery.domain.Product
-import ru.app.fastestdelivery.domain.User
+import ru.app.fastestdelivery.domain.models.Product
 import ru.app.fastestdelivery.util.MessageException
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -37,6 +35,7 @@ class Repository @Inject constructor(
     private val productResponseToEntity: ProductResponseToEntity,
     private val productEntityToModel: ProductEntityToModel,
     private val bagProductModelToEntity: BagProductModelToEntity,
+    private val bagProductEntityToModel: BagProductEntityToModel,
     private val userEntityToModel: UserEntityToModel,
 ) {
 
@@ -67,6 +66,12 @@ class Repository @Inject constructor(
             return entities.map(productEntityToModel::convert)
         } else {
             throw MessageException(message = errorMessage(response))
+        }
+    }
+
+    fun getBagProductsFlow(): Flow<List<Product>> {
+        return bagProductDao.getBagProductsFlow().map { entities ->
+            entities.map(bagProductEntityToModel::convert)
         }
     }
 

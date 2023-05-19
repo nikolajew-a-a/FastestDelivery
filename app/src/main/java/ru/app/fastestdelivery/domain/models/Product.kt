@@ -1,4 +1,4 @@
-package ru.app.fastestdelivery.domain
+package ru.app.fastestdelivery.domain.models
 
 data class Product(
     val id: Int,

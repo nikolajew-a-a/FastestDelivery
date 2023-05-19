@@ -8,6 +8,7 @@ import by.kirich1409.viewbindingdelegate.viewBinding
 import dagger.hilt.android.AndroidEntryPoint
 import ru.app.fastestdelivery.R
 import ru.app.fastestdelivery.databinding.FragmentBagBinding
+import ru.app.fastestdelivery.util.observe
 
 @AndroidEntryPoint
 class BagFragment : Fragment(R.layout.fragment_bag) {
@@ -18,11 +19,19 @@ class BagFragment : Fragment(R.layout.fragment_bag) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initViews()
+        initObservers()
     }
 
     private fun initViews() = with(viewBinding) {
         bagBuyButton.setOnClickListener {
             viewModel.onBuyButtonClicked()
+        }
+    }
+
+    private fun initObservers() {
+        viewModel.state.observe(viewLifecycleOwner) {
+            // TODO (заменить на setItems ресайлера)
+            println(it.items)
         }
     }
 
