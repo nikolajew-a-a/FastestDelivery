@@ -1,6 +1,7 @@
 package ru.app.fastestdelivery.domain
 
 import ru.app.fastestdelivery.data.Repository
+import ru.app.fastestdelivery.domain.models.User
 import javax.inject.Inject
 
 class AuthUseCase @Inject constructor(
@@ -18,5 +19,7 @@ class AuthUseCase @Inject constructor(
     suspend fun logout() {
         repository.logout()
     }
+
+    suspend fun getUser(): User? = repository.getUser()
 
 }

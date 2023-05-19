@@ -20,6 +20,7 @@ import ru.app.fastestdelivery.data.room.BagProductDao
 import ru.app.fastestdelivery.data.room.ProductDao
 import ru.app.fastestdelivery.data.room.UserDao
 import ru.app.fastestdelivery.domain.models.Product
+import ru.app.fastestdelivery.domain.models.User
 import ru.app.fastestdelivery.util.MessageException
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -32,11 +33,11 @@ class Repository @Inject constructor(
     private val bagProductDao: BagProductDao,
     private val errorsConverter: ErrorsConverter,
     private val userResponseToEntity: UserResponseToEntity,
+    private val userEntityToModel: UserEntityToModel,
     private val productResponseToEntity: ProductResponseToEntity,
     private val productEntityToModel: ProductEntityToModel,
     private val bagProductModelToEntity: BagProductModelToEntity,
     private val bagProductEntityToModel: BagProductEntityToModel,
-    private val userEntityToModel: UserEntityToModel,
 ) {
 
     suspend fun login(email: String, password: String) {
@@ -62,6 +63,8 @@ class Repository @Inject constructor(
     suspend fun logout() {
         userDao.clearUser()
     }
+
+    suspend fun getUser(): User? = userDao.getUsers().firstOrNull()?.let(userEntityToModel::convert)
 
     suspend fun getAllProducts(): List<Product> {
         val response = api.allProducts()
