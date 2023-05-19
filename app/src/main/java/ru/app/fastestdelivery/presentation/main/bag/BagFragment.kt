@@ -43,8 +43,11 @@ class BagFragment : Fragment(R.layout.fragment_bag) {
         )
     }
 
-    private fun initObservers() {
-        viewModel.state.observe(viewLifecycleOwner) { adapter.setItems(it.items) }
+    private fun initObservers() = with(viewBinding) {
+        viewModel.state.observe(viewLifecycleOwner) {
+            adapter.setItems(it.items)
+            bagTotalAmount.text = context?.getString(R.string.bag_total_amount, it.totalPrice.toString())
+        }
     }
 
     companion object {

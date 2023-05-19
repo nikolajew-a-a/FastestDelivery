@@ -26,6 +26,7 @@
 
     <!--    Bag-->
     <string name="bag_buy_button_text">Buy</string>
-    <string name="bag_total_amount">Общая стоимость:  %1$s₽</string>
+    <string name="bag_total_amount">Общая стоимость:  %s₽</string>
+    <string name="bag_item_product_price">Цена: %s₽</string>
 
 </resources>
