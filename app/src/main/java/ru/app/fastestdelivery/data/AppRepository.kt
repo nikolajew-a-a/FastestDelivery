@@ -70,6 +70,7 @@ class Repository @Inject constructor(
     }
 
     suspend fun getBagProductsFlow(): Flow<List<Product>> {
+        bagProductDao.deleteEmptyBagProducts()
         return bagProductDao.getBagProductsFlow().map { entities ->
             entities.map(bagProductEntityToModel::convert)
         }

@@ -23,14 +23,6 @@ class MainFragment : Fragment(R.layout.fragment_main) {
     private val viewBinding: FragmentMainBinding by viewBinding(FragmentMainBinding::bind)
     private val viewModel: MainViewModel by viewModels()
 
-    private val tabFragments by lazy {
-        mapOf(
-            R.id.menu_home to HomeFragment.newInstance(),
-            R.id.menu_bag to BagFragment.newInstance(),
-            R.id.menu_profile to ProfileFragment.newInstance()
-        )
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initViews()
@@ -46,13 +38,20 @@ class MainFragment : Fragment(R.layout.fragment_main) {
 
     private fun initObservers() {
         viewModel.state.observe(viewLifecycleOwner) { state ->
-            tabFragments[state.selectedTabId]?.let { fragment ->
+            getTabFragment(state.selectedTabId)?.let { fragment ->
                 childFragmentManager
                     .beginTransaction()
                     .replace(R.id.main_container, fragment)
                     .commit()
             }
         }
+    }
+
+    private fun getTabFragment(id: Int) = when (id) {
+        R.id.menu_home -> HomeFragment.newInstance()
+        R.id.menu_bag -> BagFragment.newInstance()
+        R.id.menu_profile -> ProfileFragment.newInstance()
+        else -> null
     }
 
     companion object {
