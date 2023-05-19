@@ -8,6 +8,8 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
+import ru.app.fastestdelivery.data.room.BagProductDao
+import ru.app.fastestdelivery.data.room.ProductDao
 import ru.app.fastestdelivery.data.room.UserDao
 
 @Module
@@ -27,5 +29,11 @@ object RoomModule {
 
     @Provides
     fun provideUserDao(appDatabase: AppDatabase): UserDao = appDatabase.userDao()
+
+    @Provides
+    fun provideProductDao(appDatabase: AppDatabase): ProductDao = appDatabase.productDao()
+
+    @Provides
+    fun provideBagProductDao(appDatabase: AppDatabase): BagProductDao = appDatabase.bagProductDao()
 
 }
