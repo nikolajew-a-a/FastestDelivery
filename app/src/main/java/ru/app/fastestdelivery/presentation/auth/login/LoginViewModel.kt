@@ -61,7 +61,7 @@ class LoginViewModel @Inject constructor(
         viewModelScope.launch(Dispatchers.IO) {
             try {
                 authUseCase.login(email = email, password = password)
-                withContext(Dispatchers.Main) { router.navigateTo(Screens.mainScreen()) }
+                withContext(Dispatchers.Main) { router.newRootScreen(Screens.mainScreen()) }
             } catch (e: Exception) {
                 if (e is MessageException) {
                     _errorEvent.emit(UiText.DynamicString(e.message))
