@@ -7,6 +7,19 @@
     android:layout_height="match_parent"
     tools:context=".presentation.main.home.HomeFragment">
 
+    <TextView
+        android:id="@+id/bag_products_recycler_placeholder"
+        style="@style/AppTheme.Text.Body"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="24dp"
+        android:gravity="center"
+        android:text="@string/bag_products_recycler_placeholder_text"
+        app:layout_constraintBottom_toTopOf="@+id/bag_bottom_container"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/bag_products_recycler"
         android:layout_width="match_parent"

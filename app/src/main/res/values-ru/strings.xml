@@ -25,6 +25,7 @@
     <string name="menu_item_profile_title">Профиль</string>
 
     <!--    Bag-->
+    <string name="bag_products_recycler_placeholder_text">Ваша корзина пуста</string>
     <string name="bag_buy_button_text">Buy</string>
     <string name="bag_total_amount">Общая стоимость:  %s₽</string>
     <string name="bag_item_product_price">Цена: %s₽</string>

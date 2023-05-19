@@ -2,6 +2,7 @@ package ru.app.fastestdelivery.presentation.main.bag
 
 import android.os.Bundle
 import android.view.View
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -45,6 +46,8 @@ class BagFragment : Fragment(R.layout.fragment_bag) {
 
     private fun initObservers() = with(viewBinding) {
         viewModel.state.observe(viewLifecycleOwner) {
+            bagProductsRecyclerPlaceholder.isVisible = it.items.isEmpty()
+            bagProductsRecycler.isVisible = it.items.isNotEmpty()
             adapter.setItems(it.items)
             bagTotalAmount.text = context?.getString(R.string.bag_total_amount, it.totalPrice.toString())
         }
